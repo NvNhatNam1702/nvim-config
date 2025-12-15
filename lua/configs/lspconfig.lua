@@ -29,11 +29,24 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 -- ====== Python (pyright) ======
-vim.lsp.config("pyright", {
+vim.lsp.config("basedpyright", {
   capabilities = capabilities,
   filetypes = { "python" },
-})
-vim.lsp.enable("pyright")
+settings = {
+        basedpyright = {
+            analysis = {
+                typeCheckingMode = "basic", 
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                reportUnknownVariableType = false,
+                reportUnknownMemberType = false,
+                reportUnknownArgumentType = false,
+                reportMissingTypeStubs = false,
+            },
+        },
+    },
+  })
+vim.lsp.enable("basedpyright")
 
 -- ====== Lua (lua_ls) ======
 vim.lsp.config("lua_ls", {
