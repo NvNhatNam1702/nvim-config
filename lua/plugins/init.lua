@@ -27,6 +27,10 @@ return {
     end,
   },
 
+  {
+    import = "plugins.todo"
+  },
+
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
