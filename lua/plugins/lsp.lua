@@ -30,6 +30,13 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
+		vim.diagnostic.config({
+			virtual_text = true, -- show inline errors
+			signs = true, -- show signs in the gutter
+			underline = false, -- underline errors
+			update_in_insert = false,
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 			callback = function(event)
@@ -131,24 +138,8 @@ return {
 		-- - settings (table): Override the default settings passed when initializing the server.
 		local servers = {
 			ts_ls = {},
-			ruff = { filetypes = { "py" } },
-			pylsp = {
-				{ filetypes = { "py" } },
-				settings = {
-					pylsp = {
-						plugins = {
-							pyflakes = { enabled = false },
-							pycodestyle = { enabled = false },
-							autopep8 = { enabled = false },
-							yapf = { enabled = false },
-							mccabe = { enabled = false },
-							pylsp_mypy = { enabled = false },
-							pylsp_black = { enabled = false },
-							pylsp_isort = { enabled = false },
-						},
-					},
-				},
-			},
+			ruff = { filetypes = { "python" } },
+			pyright = { filetypes = { "python" } },
 			html = { filetypes = { "html", "twig", "hbs" } },
 			cssls = {},
 			tailwindcss = {},
@@ -198,10 +189,4 @@ return {
 			vim.lsp.enable(server)
 		end
 	end,
-	vim.diagnostic.config({
-		virtual_text = true, -- show inline errors
-		signs = true, -- show signs in the gutter
-		underline = true, -- underline errors
-		update_in_insert = false,
-	}),
 }
