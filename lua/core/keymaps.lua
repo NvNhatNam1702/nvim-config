@@ -79,3 +79,10 @@ end, { desc = "Go to next diagnostic message" })
 
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+--Turn on Nvim settings
+vim.keymap.set("n", "<leader>sn", function()
+	require("telescope.builtin").find_files({
+		cwd = vim.fn.stdpath("config"),
+	})
+end, { desc = "[S]earch [N]eovim files" })
