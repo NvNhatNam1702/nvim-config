@@ -2,6 +2,12 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
+vim.keymap.set("i", "<C-c>", "<Esc>")
+vim.keymap.set("n", "<C-a>", "ggVG")
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without overwriting your register" })
 -- Disable the spacebar key's default behavior in Normal and Visual modes
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 -- For conciseness
