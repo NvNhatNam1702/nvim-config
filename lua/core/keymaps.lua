@@ -92,3 +92,7 @@ vim.keymap.set("n", "<leader>sn", function()
 		cwd = vim.fn.stdpath("config"),
 	})
 end, { desc = "[S]earch [N]eovim files" })
+-- Open lazygit
+vim.keymap.set("n", "<leader>lg", function()
+	vim.cmd("LazyGit")
+end, { desc = "Open LazyGit" }) --Turn on lazygit
