@@ -14,8 +14,6 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 local opts = { noremap = true, silent = true }
 -- save file
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", opts)
--- save file without auto-formatting
-vim.keymap.set("n", "<leader>sn", "<cmd>noautocmd w <CR>", opts)
 --enter command mode
 vim.keymap.set("n", ";", ":", { desc = "CMD enter command mode" })
 --use jk to back to normal mode
